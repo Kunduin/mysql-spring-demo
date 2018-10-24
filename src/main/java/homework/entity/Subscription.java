@@ -12,7 +12,7 @@ public class Subscription {
 
     @Id
     @Column(name = "subscription_id")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne

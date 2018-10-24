@@ -90,23 +90,21 @@ public class InitService {
         schemeArray.add(schemeOnlineLocal);
 
         ArrayList<Subscription> subscriptions = new ArrayList<>();
-        int j = 1;
-//        for (int j = 0; j < 5; j++) {
+//        int j = 1;
+        for (int j = 0; j < 5; j++) {
         Subscription subscription = new Subscription();
-        subscription.setId(1);
         subscription.setActive(j % 2 == 0);
         subscription.setScheme(schemeArray.get(j % 5));
         subscription.setStartAt(j % 3 == 1 ? new Date(System.currentTimeMillis()) : Date.valueOf(LocalDate.now().plusMonths(1)));
 //            subscriptionRepository.save(subscription);
         subscriptions.add(subscription);
-        Subscription subscription2 = new Subscription();
-        subscription2.setId(2);
-        subscription2.setActive(j % 2 == 0);
-        subscription2.setScheme(schemeArray.get(j % 5));
-        subscription2.setStartAt(j % 3 == 1 ? new Date(System.currentTimeMillis()) : Date.valueOf(LocalDate.now().plusMonths(1)));
+//        Subscription subscription2 = new Subscription();
+//        subscription2.setActive(j % 2 == 0);
+//        subscription2.setScheme(schemeArray.get(j % 5));
+//        subscription2.setStartAt(j % 3 == 1 ? new Date(System.currentTimeMillis()) : Date.valueOf(LocalDate.now().plusMonths(1)));
 //            subscriptionRepository.save(subscription2);
-        subscriptions.add(subscription2);
-//        }
+//        subscriptions.add(subscription2);
+        }
 
         int i=1;
 //        for (int i = 0; i < 10; i++) {

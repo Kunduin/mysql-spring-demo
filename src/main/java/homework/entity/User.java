@@ -36,7 +36,7 @@ public class User {
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "subscription_id")
+    @JoinColumn(name = "user_id")
     private List<Subscription> subscriptionList;
 
     public List<Subscription> getSubscriptionList() {
