@@ -33,7 +33,7 @@ public class Scheme {
 
     @Column(name = "free_online_local_data")
     @ColumnDefault("0")
-    private Integer isFreeOnlineLocalData;
+    private Integer freeOnlineLocalData;
 
     public Integer getId() {
         return id;
@@ -83,11 +83,11 @@ public class Scheme {
         this.freeOnlineData = freeOnlineData;
     }
 
-    public Integer getIsFreeOnlineLocalData() {
-        return isFreeOnlineLocalData;
+    public Integer getFreeOnlineLocalData() {
+        return freeOnlineLocalData;
     }
 
-    public void setIsFreeOnlineLocalData(Integer isFreeOnlineLocalData) {
-        this.isFreeOnlineLocalData = isFreeOnlineLocalData;
+    public void setFreeOnlineLocalData(Integer freeOnlineLocalData) {
+        this.freeOnlineLocalData = freeOnlineLocalData;
     }
 }

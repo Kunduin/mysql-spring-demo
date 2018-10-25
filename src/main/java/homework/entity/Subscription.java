@@ -1,6 +1,8 @@
 package homework.entity;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -13,10 +15,11 @@ public class Subscription {
     @Id
     @Column(name = "subscription_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "scheme_id")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private Scheme scheme;
 
     @Column(name = "start_at")
@@ -29,10 +32,6 @@ public class Subscription {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Scheme getScheme() {

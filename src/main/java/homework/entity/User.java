@@ -1,6 +1,8 @@
 package homework.entity;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column(name = "user_name")
     private String name;
@@ -22,13 +24,13 @@ public class User {
     @ColumnDefault("0")
     private Integer callTime;
 
-    @Column(name = "local_online_time")
+    @Column(name = "local_online_data")
     @ColumnDefault("0")
-    private Integer localOnlineTime;
+    private Integer localOnlineData;
 
-    @Column(name = "online_time")
+    @Column(name = "online_data")
     @ColumnDefault("0")
-    private Integer onlineTime;
+    private Integer onlineData;
 
     @Column(name = "message_count")
     @ColumnDefault("0")
@@ -36,6 +38,7 @@ public class User {
 
 
     @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name = "user_id")
     private List<Subscription> subscriptionList;
 
@@ -70,20 +73,20 @@ public class User {
         this.callTime = callTime;
     }
 
-    public Integer getLocalOnlineTime() {
-        return localOnlineTime;
+    public Integer getLocalOnlineData() {
+        return localOnlineData;
     }
 
-    public void setLocalOnlineTime(Integer localOnlineTime) {
-        this.localOnlineTime = localOnlineTime;
+    public void setLocalOnlineData(Integer localOnlineData) {
+        this.localOnlineData = localOnlineData;
     }
 
-    public Integer getOnlineTime() {
-        return onlineTime;
+    public Integer getOnlineData() {
+        return onlineData;
     }
 
-    public void setOnlineTime(Integer onlineTime) {
-        this.onlineTime = onlineTime;
+    public void setOnlineData(Integer onlineData) {
+        this.onlineData = onlineData;
     }
 
     public Integer getMessageCount() {
