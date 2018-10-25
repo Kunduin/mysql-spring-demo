@@ -43,7 +43,7 @@ public class SubscriptionService {
                     List<Subscription> subscriptions = Optional.ofNullable(user.getSubscriptionList()).orElse(new ArrayList<>());
                     subscriptions.forEach(item ->
                             System.out.println("订单id: " + item.getId() + "\t"
-                                    + "是否生效: " + item.getActive() + "\t"
+                                    + "是否有效: " + item.getActive() + "\t"
                                     + "开始时间: " + item.getStartAt() + "\t"
                                     + "订阅套餐id: " + item.getScheme().getId() + "\t"
                                     + "订阅套餐名: " + item.getScheme().getName()
@@ -69,8 +69,7 @@ public class SubscriptionService {
                         startAt = Date.valueOf(
                                 localDate
                                         .plusMonths(1)
-                                        .minusDays(localDate.getDayOfMonth())
-                                        .minusDays(1)
+                                        .minusDays(localDate.getDayOfMonth()-1)
                         );
                     }
                     subscription.setStartAt(startAt);
@@ -94,7 +93,7 @@ public class SubscriptionService {
             subscription.setActive(false);
             subscriptionRepository.save(subscription);
             System.out.println("订单id: " + subscriptionId + "\t"
-                    + "是否生效: " + subscription.getActive() + "\t"
+                    + "是否有效: " + subscription.getActive() + "\t"
                     + "开始时间: " + subscription.getStartAt() + "\t"
                     + "订阅套餐id: " + subscription.getScheme().getId() + "\t"
                     + "订阅套餐名: " + subscription.getScheme().getName()
